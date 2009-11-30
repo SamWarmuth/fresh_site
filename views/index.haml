@@ -6,10 +6,11 @@
 		<textarea rows = 10, cols = 76></textarea>
 		%br
 		<button class="button">Add Item</button><br>
-	-[:today, :yesterday, :earlier].each do |section|
+	-[:today, :yesterday, :last_week, :earlier].each do |section|
 		-next if $content[section].length == 0
-		%h2 
-			= section.to_s.capitalize
+		%h3
+			%strong
+				= section.to_s.gsub("_"," ").gsub(/\b\w/){$&.upcase}
 		%ul.archive
 			-$content[section].each do |post|
 				%li
