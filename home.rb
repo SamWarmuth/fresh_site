@@ -18,7 +18,7 @@ end
 def load_data()
 	$content = {:today => [], :yesterday => [], :earlier =>[]}
 	content = ''
-	["http://www.instapaper.com/rss/2588/CUrq0Y7Vt5yZKxhIOrDqGWxLk"].each do |url|
+	["http://www.instapaper.com/rss/2588/CUrq0Y7Vt5yZKxhIOrDqGWxLk","http://www.fbcal.com/cal/1607400071/b1bfb810885ff34b9c45f4c6-1607400071/birthday/rss/"].each do |url|
 		open(url) {|source| content = source.read}
 		rss = RSS::Parser.parse(content, false)
 		rss.items.each do |item|
