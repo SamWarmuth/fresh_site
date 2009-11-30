@@ -1,16 +1,19 @@
 #left
-	%button.button{:style => "margin-left:20px"} +
-	%form#addnew{:style => "display: none"}
-		<input type="text" name="firstname" size=79 />
-		%br
-		<textarea rows = 10, cols = 76></textarea>
-		%br
-		<button class="button">Add Item</button><br>
+
 	-[:today, :yesterday, :last_week, :earlier].each do |section|
 		-next if $content[section].length == 0
 		%h3
 			%strong
 				= section.to_s.gsub("_"," ").gsub(/\b\w/){$&.upcase}
+			-if section == :today
+				%button{:style => "margin-left:20px"} Add<br>New
+				%form#addnew{:style => "display:none"}
+					<input type="text" name="firstname" size=73 />
+					%br
+					<textarea rows = 10, cols = 70></textarea>
+					%br
+					<button class="button">Add Item</button><br>
+				
 		%ul.archive
 			-$content[section].each do |post|
 				%li
