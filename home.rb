@@ -16,6 +16,7 @@ get '/:page.css' do
 end
 
 def load_data()
+	$content = {:today => [], :yesterday => [], :earlier =>[]}
 	content = ''
 	["http://www.instapaper.com/rss/2588/CUrq0Y7Vt5yZKxhIOrDqGWxLk"].each do |url|
 		open(url) {|source| content = source.read}
