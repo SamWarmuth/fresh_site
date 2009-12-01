@@ -9,8 +9,11 @@ $content = {}
 
 
 get '/' do 
+	redirect '/fresh'
+end
+get '/fresh' do
 	load_data
-	haml :index
+	haml :fresh
 end
 get '/:page.css' do
    content_type 'text/css', :charset => 'utf-8'
@@ -30,16 +33,17 @@ def load_data()
 		open(url[1]) {|source| content = source.read}
 		rss = RSS::Parser.parse(content, false)
 		rss.items.each do |item|
+			next if Time.now.year != item.date.year
 			if item.date.yday == Time.now.yday
 				section = :today
 			elsif item.date.yday == (Time.now.yday - 1)
 				section = :yesterday
 			elsif Time.now.yday - item.date.yday < 7
 				section = :last_week
-			else
+			elsif Time.now.yday - item.date.yday < 30
 				section = :earlier
 			end
-			$content[section] << {:src => url[0], :title => item.title, :url => item.link, :guid => item.guid.to_s.gsub(/<\/?guid>/, ''), :description => item.comments}
+			$content[section] << {:src => url[0], :title => item.title, :url => item.link, :guid => item.guid.to_s.gsub(/<\/?guid>/, ''), :description => item.comments} if section
 		end
 	end
 end

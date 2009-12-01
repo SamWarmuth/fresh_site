@@ -1,0 +1,41 @@
+#left
+
+	-[:today, :yesterday, :last_week, :earlier].each do |section|
+		-next if $content[section].length == 0
+		%h3
+			%strong
+				= section.to_s.gsub("_"," ").gsub(/\b\w/){$&.upcase}
+			-if section == :today
+				%button.addNew Add<br>New
+				#newForm{:style => "display:none; font:helvetica"}
+					%form
+						<input type="text" name="firstname" size=73 />
+						%br
+						<textarea rows = 10, cols = 70></textarea>
+						%br
+						<button class="button">Add Item</button>
+					%p
+		%ul.archive
+			-$content[section].each do |post|
+				%li
+					.post-title
+						%em
+							= post[:src] 
+						%strong <a href="#{post[:url]}">#{post[:title]}</a>
+						-if post[:src]==""
+							<a href="#{post[:guid]}"> &#x2612 </a>
+					-unless post[:description].nil?
+						.post-details	
+							= post[:description]
+	%h3
+		%a{:href => "http://www.instapaper.com"} Instapaper
+#right
+	.sidemenu
+		%form#quick-search{:action => "index.html", :method => "get"}
+			%p
+				%label{:for => "qsearch"}Search:
+				%input.tbox#qsearch{:type => "text", :name => "qsearch", :value => "type and hit enter...", :title => "Start typing and hit ENTER"}
+				%input.btn{:alt=>"Search", :type=>"image", :name=>"searchsubmit", :title=>"Search", :src=>"images/search.gif"}
+	%br/
+	%p
+		%iframe{:src => "https://www.google.com/calendar/hosted/samwarmuth.com/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=samwarmuth.com_ihon754n0meliumo29t5gjtt94%40group.calendar.google.com&amp;color=%232952A3&amp;src=sam%40samwarmuth.com&amp;color=%231B887A&amp;ctz=America%2FChicago", :style => "border-width:0", :width => 270, :height =>600, :frameborder => 0, :scrolling => "no"}
