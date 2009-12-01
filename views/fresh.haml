@@ -1,7 +1,7 @@
 #left
 
 	-[:today, :yesterday, :last_week, :earlier].each do |section|
-		-next if $content[section].length == 0
+		-next if $content[section].length == 0 && section != :today
 		%h3
 			%strong
 				= section.to_s.gsub("_"," ").gsub(/\b\w/){$&.upcase}
