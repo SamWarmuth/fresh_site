@@ -7,6 +7,9 @@
 	<script type="text/javascript">
 	$(function()
 	{
+	$(document).ready(function () {
+	$('li.#{params[:page]}').attr("id","current");
+	});
 	$('.addNew').click(function()
 	{
 	$('#newForm').slideToggle("slow");
@@ -21,10 +24,10 @@
 			%p#slogan You know -- a lotta ins, lotta outs, lotta what-have-yous.
 			#nav
 				%ul
-					%li.first <a href="/fresh">Fresh</a>
-					%li <a href="http://blog.samwarmuth.com">Blog</a>
-					%li <a href="portfolio">Portfolio</a>
-					%li <a href="about">About</a>
+					%li.Fresh.first <a href='/fresh'>Fresh</a>
+					%li.Blog <a href='http://blog.samwarmuth.com'>Blog</a>
+					%li.Portfolio <a href='/portfolio'>Portfolio</a>
+					%li.About <a href='about'>About</a>
 			#header-image
 		#content-outer.clear
 			#content-wrap

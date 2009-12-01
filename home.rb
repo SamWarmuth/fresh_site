@@ -12,6 +12,7 @@ get '/' do
 	redirect '/fresh'
 end
 get '/fresh' do
+	params[:page] = 'Fresh'
 	load_data
 	haml :fresh
 end
@@ -20,9 +21,11 @@ get '/:page.css' do
    sass params[:page].to_sym
 end
 get '/portfolio' do
+	params[:page] = 'Portfolio'
 	haml :portfolio
 end
 get '/about' do
+	params[:page] = 'About'
 	haml :about
 end
 
