@@ -2,6 +2,18 @@
 %head
 	%title
 	<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js">
+	</script>
+	<script type="text/javascript">
+	$(function()
+	{
+	$('.addNew').click(function()
+	{
+	$('#newForm').slideToggle("slow");
+	return false;
+	});
+	});
+	</script>
 %body
 	#wrap
 		#header
@@ -9,10 +21,10 @@
 			%p#slogan You know -- a lotta ins, lotta outs, lotta what-have-yous.
 			#nav
 				%ul
-					%li.first#current <a href="fresh">Fresh</a>
+					%li.first <a href="/">Fresh</a>
 					%li <a href="http://blog.samwarmuth.com">Blog</a>
-					%li <a href="portfolio.html">Portfolio</a>
-					%li <a href="about.html">About</a>
+					%li <a href="portfolio">Portfolio</a>
+					%li <a href="about">About</a>
 			#header-image
 		#content-outer.clear
 			#content-wrap

@@ -1,0 +1,74 @@
+!!!
+%head
+	%title Sam Warmuth - Portfolio
+	<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
+%body
+
+.clear#featured			
+	<a name="TemplateInfo"></a>
+	.image-block
+		<img src="images/img-featured.jpg" alt="featured"/>		
+	.text-block
+		%h2
+			<a href="index.html">Movie Database</a>
+		%p
+			<strong>The Movie Database</strong> was a recent project for my database class this semester. The point
+			was to create a working database model for a simple data set. I chose to use my movie collection.
+		%p
+			With <a href='http://www.sinatrarb.com'>Sinatra</a> and the 
+			<a href='http://www.datamapper.org'>datamapper framework</a>,
+			the basic project was pretty simple. From that base, I added automatic 
+			lookup using <a href='http://tmdb.org'>TMDb</a>'s API, cover art, and 
+			a few jQuery effects. All in all, it was pretty fun, and I got a lot more
+			comfortable with Sinatra, jQuery, Heroku, Ruby, and haml/sass.
+		%p 
+			<a href="http://moviedb.samwarmuth.com" class="more-link">MovieDB</a>
+			<a href="http://www.github.com/harpastum/movieDB/" class="more-link">Source</a>
+#left
+	.entry
+		%h3 <a href="http://www.tranquilapps.com">Tranquil Checkers</a>
+		%p
+			My first complete project. A checkers game written in java with a pretty legitimate AI.
+			It's for sale at tranquilapps.com, and I've managed to sell several dozen copies.
+		%p <a class="more-link" href="http://www.tranquilapps.com">Web Site</a>
+	.entry
+		%h3 Other Projects
+		%p
+			Over the course of the last few years I've worked on lots of projects of varying quality.
+		%h4 Red-Black Tree
+		%p
+			An implementation of red-black trees from scratch for my intro to algorithms class. My first 
+			project in ruby (and also using Sinatra/Heroku), it was pretty useful. 
+		%p 
+			<a class="more-link" href="redblack.samwarmuth.com">Site</a>	|
+			<a class="more-link" href="http://github.com/harpastum/sinatra-rbtree">Source</a>
+		%h4 Egnimata
+		%p
+			A mastermind clone (Obj-C/Cocoa) that I had big plans for, but stopped working on after the 
+			basic functionality was done. I had fun playing with core animation for this.
+		%p 
+			<a class="more-link" href="http://sites.google.com/site/harpastum/Enigmata.zip?attredirects=0&d=1">Download</a>
+			(OS X Only)
+		%h4 Slots of fun
+		%p
+			A slot machine game that I built while learning the basics of Core Animation. 
+			Not the most amazing thing ever, but it's kinda fun. Oh, and if you do check it out, try clicking 
+			on the coin pile for an easter egg.
+		%p 
+			<a class="more-link" href="http://sites.google.com/site/harpastum/SlotsofFun.zip">Download</a>
+			(OS X Only)
+		%h4 Mancala
+		%p
+			One of my first projects in Java. It was for my freshman programming class, and while it doesn't 
+			seem like much now, it was pretty awesome at the time.
+		%p 
+			<a class="more-link" href="http://sites.google.com/site/harpastum/Mancala.zip?attredirects=0&d=1">Download</a>
+			(Java)
+#right
+	.sidemenu
+		%form#quick-search{:action => "index.html", :method => "get"}
+			%p
+				%label{:for => "qsearch"}Search:
+				%input.tbox#qsearch{:type => "text", :name => "qsearch", :value => "type and hit enter...", :title => "Start typing and hit ENTER"}
+				%input.btn{:alt=>"Search", :type=>"image", :name=>"searchsubmit", :title=>"Search", :src=>"images/search.gif"}
+	%br/

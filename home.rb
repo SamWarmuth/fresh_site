@@ -16,6 +16,12 @@ get '/:page.css' do
    content_type 'text/css', :charset => 'utf-8'
    sass params[:page].to_sym
 end
+get '/portfolio' do
+	haml :portfolio
+end
+get '/about' do
+	haml :about
+end
 
 def load_data()
 	$content = {:today => [], :yesterday => [], :last_week => [], :earlier =>[]}

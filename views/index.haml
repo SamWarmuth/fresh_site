@@ -6,13 +6,15 @@
 			%strong
 				= section.to_s.gsub("_"," ").gsub(/\b\w/){$&.upcase}
 			-if section == :today
-				%button{:style => "margin-left:20px"} Add<br>New
-				%form#addnew{:style => "display:none"}
-					<input type="text" name="firstname" size=73 />
-					%br
-					<textarea rows = 10, cols = 70></textarea>
-					%br
-					<button class="button">Add Item</button><br>
+				%button.addNew Add<br>New
+
+				#newForm{:style => "display:none; font:helvetica"}
+					%form
+						<input type="text" name="firstname" size=73 />
+						%br
+						<textarea rows = 10, cols = 70></textarea>
+						%br
+						<button class="button">Add Item</button><br>
 				
 		%ul.archive
 			-$content[section].each do |post|
