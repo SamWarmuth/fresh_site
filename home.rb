@@ -16,13 +16,6 @@ get '/fresh' do
 	load_data
 	haml :fresh
 end
-post '/tumblrpost' do
-	params['email']="sam@samwarmuth.com"
-	params['password']="calculo"
-	params['format']="markdown"
-	params['type']="regular"
-	redirect 'http://www.tumblr.com/api/write', 307
-end
 get '/:page.css' do
    content_type 'text/css', :charset => 'utf-8'
    sass params[:page].to_sym
@@ -42,6 +35,7 @@ def load_data()
 	[["SW","http://pdb.samwarmuth.com/posts.xml"],["TBL","http://blog.samwarmuth.com/rss"],["INS","http://www.instapaper.com/rss/2588/CUrq0Y7Vt5yZKxhIOrDqGWxLk"],["GSR","http://www.givemesomethingtoread.com/rss"]].each do |url|
 		open(url[1]) {|source| content = source.read}
 		rss = RSS::Parser.parse(content, false)
+		next if rss.nil?
 		rss.items.each do |item|
 			next if Time.now.year != item.date.year
 			if item.date.yday == Time.now.yday
