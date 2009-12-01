@@ -47,7 +47,7 @@ def load_data()
 			elsif Time.now.yday - item.date.yday < 30
 				section = :earlier
 			end
-			$content[section] << {:src => url[0], :title => item.title, :url => item.link, :guid => item.guid.to_s.gsub(/<\/?guid>/, ''), :description => item.description.gsub(/<\/?blockquote>/, '')} if section
+			$content[section] << {:src => url[0], :title => item.title, :url => item.link, :guid => item.guid.to_s.gsub(/<\/?guid>/, ''), :description => item.description.to_s.gsub(/<\/?blockquote>/, '')} if section
 		end
 	end
 end
