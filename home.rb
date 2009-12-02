@@ -10,6 +10,16 @@ $content = {}
 
 get '/' do 
 	redirect '/fresh'
+	m = 3
+	if m == 2
+		"stuff"
+	elsif m == 1
+		"other stuff"
+	else
+		if sdfajksdf
+			"This code won't run"
+		end	
+	end
 end
 get '/fresh' do
 	params[:page] = 'Fresh'

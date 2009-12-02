@@ -1,11 +1,10 @@
 #left
-
 	-[:today, :yesterday, :last_week, :earlier].each do |section|
 		-next if $content[section].length == 0 && section != :today
 		%h3
 			%strong
 				= section.to_s.gsub("_"," ").gsub(/\b\w/){$&.upcase}
-			-if section == :today
+			- if section == :today
 				%button.addNew Add<br>New
 				#newForm{:style => "display:none; font:helvetica"}
 					%form{:method => "POST", :action => "http://pdb.samwarmuth.com/new"}
@@ -22,6 +21,8 @@
 						%strong <a href="#{post[:url]}">#{post[:title]}</a>
 						%em
 							= post[:src]
+						-if post[:src]=='SW'
+							<a href='#{post[:guid]}'>x</a>
 					-unless post[:description]==''
 						.post-details	
 							= post[:description][0..270] << "..."
