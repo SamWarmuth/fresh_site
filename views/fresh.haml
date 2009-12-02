@@ -22,7 +22,8 @@
 							= post[:src]
 					-unless post[:description]==''
 						.post-details	
-							= post[:description][0..270] << "..."
+							= post[:description][0..270] 
+							="..." if post[:description].length>270
 	%h3
 		%a{:href => "http://www.instapaper.com"} Instapaper
 #right
