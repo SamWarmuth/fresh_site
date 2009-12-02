@@ -5,7 +5,7 @@
 			%strong
 				= section.to_s.gsub("_"," ").gsub(/\b\w/){$&.upcase}
 			- if section == :today
-				%button.button.addNew Add<br>New
+				%button.button.addNew New
 				#newForm{:style => "display:none; font:helvetica"}
 					%form{:method => "POST", :action => "http://pdb.samwarmuth.com/new"}
 						<input type="text" name="title" size=73 />
@@ -13,7 +13,6 @@
 						<textarea rows = 10, cols = 70, name="description"></textarea>
 						%br
 						%button.button Add Item
-					%p
 		%ul.archive
 			-$content[section].each do |post|
 				%li
@@ -21,8 +20,6 @@
 						%strong <a href="#{post[:url]}">#{post[:title]}</a>
 						%em
 							= post[:src]
-						-if post[:src]=='SW'
-							<a href='#{post[:guid]}'>x</a>
 					-unless post[:description]==''
 						.post-details	
 							= post[:description][0..270] << "..."
