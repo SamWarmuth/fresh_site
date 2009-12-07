@@ -33,7 +33,11 @@ def load_data()
 	$content = {:today => [], :yesterday => [], :last_week => [], :earlier =>[]}
 	content = ''
 	[["SW","http://pdb.samwarmuth.com/posts.xml"],["TBL","http://blog.samwarmuth.com/rss"],["INS","http://www.instapaper.com/rss/2588/CUrq0Y7Vt5yZKxhIOrDqGWxLk"],["GSR","http://www.givemesomethingtoread.com/rss"]].each do |url|
-		open(url[1]) {|source| content = source.read}
+		begin
+			open(url[1]) {|source| content = source.read}
+		 rescue OpenURI::HTTPError
+		   next
+		 end
 		rss = RSS::Parser.parse(content, false)
 		next if rss.nil?
 		rss.items.each do |item|
