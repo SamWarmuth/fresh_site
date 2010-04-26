@@ -21,29 +21,25 @@
 %body
 	#wrap
 		#header
-			%h1#logo-text <a href="/" title="">Sam Warmuth</a>
-			%p#slogan You know -- a lotta ins, lotta outs, lotta what-have-yous.
+			%h1 <a href="/" title="">Sam Warmuth</a>
 			#nav
 				%ul
 					%li.Fresh.first <a href='/fresh'>Fresh</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
 					%li.Blog <a href='http://blog.samwarmuth.com'>Blog</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
 					%li.Portfolio <a href='/portfolio'>Portfolio</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
 					%li.About <a href='about'>About</a>
-			#header-image
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		#content-outer.clear
 			#content-wrap
 				#content
 					=yield
-		#footer-bottom
-			.bottom-left
-				%p
-					%img{:src => "/images/Glider.png", :style => "border: 0; padding: 0; background: #FFF"}
-						2010 <strong>Sam Warmuth</strong>&nbsp; &nbsp; &nbsp;
-					
-					&nbsp; &nbsp; &nbsp;
-					Design by: <a href="http://www.styleshout.com/">styleshout</a>
-			.bottom-right
-				%p	
-					<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>	| 
-					<a href="http://validator.w3.org/check/referer">XHTML</a>	|
-					<a href="/">Home</a>
+		#footer
+			%p
+				%img{:src => "/images/Glider.png", :style => "border: 0; padding: 0; background: #FFF"}
+					2010 <strong>Sam Warmuth</strong>&nbsp; &nbsp; &nbsp;
+			%p	
+				<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>	| 
+				<a href="http://validator.w3.org/check/referer">XHTML</a>
