@@ -32,7 +32,7 @@ end
 def load_data()
 	$content = {:today => [], :yesterday => [], :last_week => [], :earlier =>[]}
 	content = ''
-	[["SW","http://pdb.samwarmuth.com/posts.xml"],["TBL","http://blog.samwarmuth.com/rss"],["INS","http://www.instapaper.com/rss/2588/CUrq0Y7Vt5yZKxhIOrDqGWxLk"],["GSR","http://www.givemesomethingtoread.com/rss"]].each do |url|
+	[["SW","http://pdb.samwarmuth.com/posts.xml"],["TBL","http://blog.samwarmuth.com/rss"],["INS","http://www.instapaper.com/rss/2588/loMH7cAuH9BmL16bOe2G4wXht0"],["GSR","http://www.givemesomethingtoread.com/rss"]].each do |url|
 		begin
 			open(url[1]) {|source| content = source.read}
 		 rescue OpenURI::HTTPError
