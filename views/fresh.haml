@@ -4,7 +4,7 @@
     %em{:style => "font-size: 50%"}
       Adjective
   %p
-    <em>3</em> a fresh approach: new, recent, latest, up-to-date, modern, original, novel, different, innovative, unusual, unconventional, unorthodox; radical, revolutionary.
+    <em>3</em> new, recent, latest, up-to-date, modern, original, novel, different, innovative, unusual, unconventional, unorthodox; radical, revolutionary.
   %hr
   %p
     %b Fresh is where I keep all of my new thoughts, ideas, and links.
@@ -12,7 +12,7 @@
   -next if $content[section].length == 0 && section != :today
   %h3
   %ul.entry
-    %h2{:style => "margin-top: 0"}
+    %h2{:style => ""}
       = section.to_s.gsub("_"," ").gsub(/\b\w/){$&.upcase}
       - if section == :today
         %button.button.addNew New
