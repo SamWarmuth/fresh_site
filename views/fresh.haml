@@ -1,31 +1,41 @@
+.entry
+  %h2
+    Fresh
+    %em{:style => "font-size: 50%"}
+      Adjective
+  %p
+    <em>3</em> a fresh approach: new, recent, latest, up-to-date, modern, original, novel, different, innovative, unusual, unconventional, unorthodox; radical, revolutionary.
+  %hr
+  %p
+    %b Fresh is where I keep all of my new thoughts, ideas, and links.
 -[:today, :yesterday, :last_week, :earlier].each do |section|
-	-next if $content[section].length == 0 && section != :today
-	%h3
-	%ul.entry
-		%h2{:style => "margin-top: 0"}
-			= section.to_s.gsub("_"," ").gsub(/\b\w/){$&.upcase}
-			- if section == :today
-				%button.button.addNew New
-			#newForm{:style => "display:none; font:helvetica"}
-				%form{:method => "POST", :action => "http://pdb.samwarmuth.com/new"}
-					<input type="text" name="title" size=73 />
-					%br
-					<textarea rows = 10, cols = 70, name="description"></textarea>
-					%br
-					%button.button Add Item
-		-$content[section].each do |post|
-			%li
-				.post-title
-					%strong <a href="#{post[:url]}">#{post[:title]}</a>
-					%em
-						= post[:src]
-				-unless post[:description]==''
-					.post-details
-						- if post[:src] == 'GSR'
-							- post[:description] = post[:description].to_a[1..-1].join
-							= post[:description][0..270]
-						- else
-							= post[:description][0..270]
-						="..." if post[:description].length>270
+  -next if $content[section].length == 0 && section != :today
+  %h3
+  %ul.entry
+    %h2{:style => "margin-top: 0"}
+      = section.to_s.gsub("_"," ").gsub(/\b\w/){$&.upcase}
+      - if section == :today
+        %button.button.addNew New
+      #newForm{:style => "display:none; font:helvetica"}
+        %form{:method => "POST", :action => "http://pdb.samwarmuth.com/new"}
+          <input type="text" name="title" size=73 />
+          %br
+          <textarea rows = 10, cols = 70, name="description"></textarea>
+          %br
+          %button.button Add Item
+    -$content[section].each do |post|
+      %li
+        .post-title
+          %strong <a href="#{post[:url]}">#{post[:title]}</a>
+          %em
+            = post[:src]
+        -unless post[:description]==''
+          .post-details
+            - if post[:src] == 'GSR'
+              - post[:description] = post[:description].to_a[1..-1].join
+              = post[:description][0..270]
+            - else
+              = post[:description][0..270]
+            ="..." if post[:description].length>270
 %h3
-	%a{:href => "http://www.instapaper.com"} Instapaper
+  %a{:href => "http://www.instapaper.com"} Instapaper
