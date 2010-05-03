@@ -9,7 +9,7 @@ $content = {}
 
 
 get '/' do 
-	redirect '/blog'
+	redirect '/about'
 end
 get '/fresh' do
 	params[:page] = 'Fresh'
